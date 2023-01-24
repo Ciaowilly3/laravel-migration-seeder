@@ -24,6 +24,12 @@
                                 <li>Orario di partenza previsto: {{($train->orario_di_partenza)}}</li>
                                 <li>Orario di arrivo previsto: {{$train->orario_di_arrivo}}</li>
                                 <li>Numero di carrozze: {{$train->numero_carrozze}}</li>
+                                @if (!$train->in_orario)
+                                    <li class="text-warning">Per questo treno è previsto un ritardo</li>
+                                @endif
+                                @if ($train->cancellato)
+                                    <li class="text-danger">CANCELLATO</li>
+                                @endif
                             </ul>
                         </li>
                     </ul>
